@@ -15,10 +15,6 @@ export default function MainVisual() {
 
   const onScroll = () => {
     const scrollY = window.pageYOffset
-    console.log(scrollY)
-    // img1.current.style.top = scrollY * 0.8 + "px"
-    // img2.current.style.top = scrollY * 0.8 + "px"
-    // img3.current.style.top = scrollY * 0.8 + "px"
     img1.current.style.transform = `translateY(${scrollY * 0.6}px)`
     img2.current.style.transform = `translateY(${scrollY * 0.6}px)`
     img3.current.style.transform = `translateY(${scrollY * 0.6}px)`
@@ -34,46 +30,6 @@ export default function MainVisual() {
 
   return (
     <>
-      {/* <Box
-        ref={ref}
-        position="relative"
-        h="100vh"
-        overflow="hidden"
-      >
-        <Image
-          ref={img}
-          src="/images/yamada_23.JPG"
-          alt='Dan Abramov' 
-          objectFit='cover'
-          position="absolute"
-          top="0"
-          width="100%"
-          height="100%"
-        />
-        <Box
-          position="absolute"
-          top="0"
-          width="100%"
-          height="100%"
-          backgroundColor="black"
-          opacity="0.7"
-        ></Box>
-        <Box
-          ref={texts}
-          position="absolute"
-          top="0"
-          width="100%"
-          height="100%"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Text color="white" fontSize="5xl" transform="translateX(-50px)">Kyosuke</Text>
-          <Text color="white" fontSize="5xl" transform="translateX(50px)">Yamada</Text>
-        </Box>
-      </Box> */}
-
       <Box
         ref={ref}
         position="relative"
@@ -85,12 +41,12 @@ export default function MainVisual() {
           options={{
             type: "fade",
             rewind: true,
-            speed: "2000",
+            speed: "1000",
             padding: 0,
             arrows: false,
             pagination: false,
             autoplay: true, // 自動再生を有効
-            interval: 8000, // 自動再生の間隔を3秒に設定
+            interval: 7000, // 自動再生の間隔を3秒に設定
             height: "100vh"
           }}
         >
@@ -147,11 +103,21 @@ export default function MainVisual() {
           height="100%"
           display="flex"
           flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
+          paddingTop="30vh"
+          paddingLeft="5"
         >
-          <Text color="white" fontSize="5xl">Kyosuke</Text>
-          <Text color="white" fontSize="5xl">Yamada</Text>
+          <Text 
+            color="white" 
+            fontSize="6xl" 
+            lineHeight="1.3"
+            letterSpacing={10}
+          >Kyosuke</Text>
+          <Text 
+            color="white" 
+            fontSize="5xl" 
+            lineHeight="1"
+            letterSpacing={10}
+          >Yamada</Text>
         </Box>
       </Box>
     </>

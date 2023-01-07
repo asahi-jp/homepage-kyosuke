@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import MainVisual from '../components/mainVisual'
 import { Box } from '@chakra-ui/react'
+import MainVisual from '../components/mainVisual'
+import Section1 from '../components/section1'
+import Section2 from '../components/section2'
 
 export default function Home() {
   return (
@@ -12,7 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainVisual />
-      <Box h="100vh"></Box>
+      <Section1 />
+      <Section2 />
       <Box h="100vh"></Box>
     </>
   )
