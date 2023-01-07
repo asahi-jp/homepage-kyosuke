@@ -9,6 +9,8 @@ export default function MainVisual() {
   const img2 = useRef()
   const img3 = useRef()
   const texts = useRef()
+  const text1 = useRef()
+  const text2 = useRef()
   const { ref, inView } = useInView({
     rootMargin: '0px',
   });
@@ -27,6 +29,18 @@ export default function MainVisual() {
       return () => document.removeEventListener('scroll', onScroll)
     }
   }, [inView])
+
+  // アニメーション
+  useEffect(() => {
+    setTimeout(() => {
+      text1.current.style.opacity = "1"
+      text1.current.style.transform = "translateY(0px)"
+      setTimeout(() => {
+        text2.current.style.opacity = "1"
+        text2.current.style.transform = "translateY(0px)"
+      }, 500)
+    }, 3500)
+  }, [])
 
   return (
     <>
@@ -49,7 +63,7 @@ export default function MainVisual() {
             interval: 7000, // 自動再生の間隔を3秒に設定
             height: "100vh"
           }}
-        >
+          >
           <SplideSlide>
             <Image
               ref={img1}
@@ -107,17 +121,38 @@ export default function MainVisual() {
           paddingLeft="5"
         >
           <Text 
+            ref={text1}
+            className='font'
             color="white" 
             fontSize="6xl" 
+            fontWeight="bold"
             lineHeight="1.3"
-            letterSpacing={10}
+            letterSpacing={5}
+            opacity="0"
+            transition="all 1s"
+            transform="translateY(20px)"
           >Kyosuke</Text>
           <Text 
+            ref={text2}
+            className='font'
             color="white" 
             fontSize="5xl" 
-            lineHeight="1"
-            letterSpacing={10}
+            fontWeight="bold"
+            lineHeight="1.1"
+            letterSpacing={5}
+            opacity="0"
+            transition="all 1s"
+            transform="translateY(20px)"
           >Yamada</Text>
+        </Box>
+        <Box
+          position="absolute"
+          bottom="0"
+          width="100%"
+          display="flex"
+          justifyContent="center"
+        >
+        <div class="scrolldown3"><span>Scroll</span></div>
         </Box>
       </Box>
     </>

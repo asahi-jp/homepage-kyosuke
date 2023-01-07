@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'
 import MainVisual from '../components/mainVisual'
 import Section1 from '../components/section1'
 import Section2 from '../components/section2'
+import Loading from '../components/loading'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Section1 />
       <Section2 />
       <Box h="100vh"></Box>
+      <Loading />
     </>
   )
 }

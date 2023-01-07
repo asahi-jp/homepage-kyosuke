@@ -20,7 +20,6 @@ export default function Section2() {
   }
 
   useEffect(() => {
-    console.log(inView)
     if(inView) {
       document.addEventListener('scroll', onScroll)
       return () => document.removeEventListener('scroll', onScroll)
