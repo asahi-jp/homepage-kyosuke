@@ -74,7 +74,7 @@ export default function Section2() {
           pr="5"
           textAlign="right"
         >
-          <Text color="white" fontSize="5xl" letterSpacing={5}>基礎</Text>
+          <Text color="white" fontSize="4xl" letterSpacing={5} fontWeight="bold">基礎</Text>
           <Text mt="5" color="white" fontSize="sm" lineHeight={2} >
             大学3年のシーズンに技術選に挑戦<br />
             初出場で種目別5位などを獲り、<br />

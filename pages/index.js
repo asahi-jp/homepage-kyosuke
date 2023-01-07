@@ -18,6 +18,13 @@ export default function Home() {
       <Section1 />
       <Section2 />
       <Box h="100vh"></Box>
+      動画
+      ブログ（カルーセル）
+      SNS
+      ギャラリー
+      自己紹介
+      マテリアル
+      スポンサー募集中
       <Loading />
     </>
   )

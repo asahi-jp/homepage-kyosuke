@@ -75,7 +75,7 @@ export default function Section1() {
           pt="96"
           pl="5"
         >
-          <Text color="white" fontSize="5xl" letterSpacing={5}>アルペン</Text>
+          <Text color="white" fontSize="4xl" letterSpacing={5} fontWeight="bold">アルペン</Text>
           <Text mt="5" color="white" fontSize="sm" lineHeight={2} >
             小学校から地元青森県大鰐町でアルペンスキーを始める<br />
             全国大会で優勝し、オリンピックを目標に掲げる<br />
