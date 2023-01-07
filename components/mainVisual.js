@@ -15,9 +15,9 @@ export default function MainVisual() {
 
   const onScroll = () => {
     const scrollY = window.pageYOffset
-    img1.current.style.top = scrollY * 0.9 + "px"
-    img2.current.style.top = scrollY * 0.9 + "px"
-    img3.current.style.top = scrollY * 0.9 + "px"
+    img1.current.style.top = scrollY * 0.8 + "px"
+    img2.current.style.top = scrollY * 0.8 + "px"
+    img3.current.style.top = scrollY * 0.8 + "px"
     texts.current.style.top = scrollY * 0.7 + "px"
   }
 
@@ -79,7 +79,8 @@ export default function MainVisual() {
         <Splide
           aria-label="私のお気に入りの画像集"
           options={{
-            type: "loop",
+            type: "fade",
+            rewind: true,
             speed: "5000",
             padding: 0,
             arrows: false,
