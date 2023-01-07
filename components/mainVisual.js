@@ -85,12 +85,12 @@ export default function MainVisual() {
           options={{
             type: "fade",
             rewind: true,
-            speed: "5000",
+            speed: "2000",
             padding: 0,
             arrows: false,
             pagination: false,
             autoplay: true, // 自動再生を有効
-            interval: 5000, // 自動再生の間隔を3秒に設定
+            interval: 8000, // 自動再生の間隔を3秒に設定
             height: "100vh"
           }}
         >
