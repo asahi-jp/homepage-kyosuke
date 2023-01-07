@@ -33,6 +33,7 @@ export default function MainVisual() {
 
   // アニメーション
   useEffect(() => {
+    scroll.current.style.height = window.innerHeight + "px"
     setTimeout(() => {
       scroll.current.style.opacity = "1"
       scroll.current.style.transform = "translateY(0px)"
@@ -152,7 +153,6 @@ export default function MainVisual() {
         </Box>
         <Box
           ref={scroll}
-          className='scrollIcon'
           position="absolute"
           bottom="0"
           width="100%"

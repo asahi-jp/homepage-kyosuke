@@ -2,7 +2,6 @@ body,
 html {
   background-color: black !important;
   font-family: 'Noto Sans JP', sans-serif !important;
-  min-height: -webkit-fill-available;
 }
 
 #__next {
@@ -11,16 +10,6 @@ html {
 
 .font {
   font-family: 'Shippori Mincho B1', serif;
-}
-
-.loading {
-  height: 100vh;
-  height: 100dvh;
-}
-
-.scrollIcon {
-  height: 100vh;
-  height: 100svh;
 }
 
 .scrolldown3{
