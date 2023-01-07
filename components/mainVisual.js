@@ -19,10 +19,10 @@ export default function MainVisual() {
     // img1.current.style.top = scrollY * 0.8 + "px"
     // img2.current.style.top = scrollY * 0.8 + "px"
     // img3.current.style.top = scrollY * 0.8 + "px"
-    img1.current.style.transform = `translateY(${scrollY * 0.8}px)`
-    img2.current.style.transform = `translateY(${scrollY * 0.8}px)`
-    img3.current.style.transform = `translateY(${scrollY * 0.8}px)`
-    texts.current.style.transform = `translateY(${scrollY * 0.7}px)`
+    img1.current.style.transform = `translateY(${scrollY * 0.6}px)`
+    img2.current.style.transform = `translateY(${scrollY * 0.6}px)`
+    img3.current.style.transform = `translateY(${scrollY * 0.6}px)`
+    texts.current.style.transform = `translateY(${scrollY * 0.4}px)`
   }
 
   useEffect(() => {
