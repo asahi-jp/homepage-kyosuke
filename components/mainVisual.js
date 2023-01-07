@@ -11,6 +11,7 @@ export default function MainVisual() {
   const texts = useRef()
   const text1 = useRef()
   const text2 = useRef()
+  const scroll = useRef()
   const { ref, inView } = useInView({
     rootMargin: '0px',
   });
@@ -35,6 +36,8 @@ export default function MainVisual() {
     setTimeout(() => {
       text1.current.style.opacity = "1"
       text1.current.style.transform = "translateY(0px)"
+      scroll.current.style.opacity = "1"
+      scroll.current.style.transform = "translateY(0px)"
       setTimeout(() => {
         text2.current.style.opacity = "1"
         text2.current.style.transform = "translateY(0px)"
@@ -146,12 +149,16 @@ export default function MainVisual() {
           >Yamada</Text>
         </Box>
         <Box
+          ref={scroll}
           className='scrollIcon'
           position="absolute"
           bottom="0"
           width="100%"
           display="flex"
           justifyContent="center"
+          opacity="0"
+          transition="all 1s"
+          transform="translateY(20px)"
         >
           <div class="scrolldown3">
             <span>Scroll</span>
