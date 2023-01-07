@@ -12,6 +12,11 @@ html {
   font-family: 'Shippori Mincho B1', serif;
 }
 
+.scrollIcon {
+  height: 100vh;
+  height: 100svh;
+}
+
 .scrolldown3{
   /*描画位置※位置は適宜調整してください*/
 position:absolute;

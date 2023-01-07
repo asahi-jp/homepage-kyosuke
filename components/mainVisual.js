@@ -146,15 +146,16 @@ export default function MainVisual() {
           >Yamada</Text>
         </Box>
         <Box
+          className='scrollIcon'
           position="absolute"
           bottom="0"
           width="100%"
           display="flex"
           justifyContent="center"
         >
-        <div class="scrolldown3">
-          <span>Scroll</span>
-        </div>
+          <div class="scrolldown3">
+            <span>Scroll</span>
+          </div>
         </Box>
       </Box>
     </>
