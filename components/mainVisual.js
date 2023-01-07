@@ -15,10 +15,14 @@ export default function MainVisual() {
 
   const onScroll = () => {
     const scrollY = window.pageYOffset
-    img1.current.style.top = scrollY * 0.8 + "px"
-    img2.current.style.top = scrollY * 0.8 + "px"
-    img3.current.style.top = scrollY * 0.8 + "px"
-    texts.current.style.top = scrollY * 0.7 + "px"
+    console.log(scrollY)
+    // img1.current.style.top = scrollY * 0.8 + "px"
+    // img2.current.style.top = scrollY * 0.8 + "px"
+    // img3.current.style.top = scrollY * 0.8 + "px"
+    img1.current.style.transform = `translateY(${scrollY * 0.8}px)`
+    img2.current.style.transform = `translateY(${scrollY * 0.8}px)`
+    img3.current.style.transform = `translateY(${scrollY * 0.8}px)`
+    texts.current.style.transform = `translateY(${scrollY * 0.7}px)`
   }
 
   useEffect(() => {
@@ -146,8 +150,8 @@ export default function MainVisual() {
           justifyContent="center"
           alignItems="center"
         >
-          <Text color="white" fontSize="5xl" transform="translateX(-50px)">Kyosuke</Text>
-          <Text color="white" fontSize="5xl" transform="translateX(50px)">Yamada</Text>
+          <Text color="white" fontSize="5xl">Kyosuke</Text>
+          <Text color="white" fontSize="5xl">Yamada</Text>
         </Box>
       </Box>
     </>
