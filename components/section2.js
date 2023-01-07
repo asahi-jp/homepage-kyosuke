@@ -16,7 +16,7 @@ export default function Section2() {
     const viewBottom = viewPort + scrollY
     const topPosition = viewBottom - position + 200
     img.current.style.transform = `scale(1.5) translateY(${topPosition * 0.1}px)`
-    texts.current.style.transform = `translateY(${topPosition * -0.1}px)`
+    texts.current.style.transform = `translateY(${topPosition * -0.3}px)`
   }
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function Section2() {
             width="100%"
             height="100%"
             backgroundColor="black"
-            background="linear-gradient(to left, black 60%, white)"
+            background="linear-gradient(225deg, black, white)"
             opacity="0.8"
           ></Box>
         </Box>
@@ -71,7 +71,7 @@ export default function Section2() {
           top="0"
           width="100%"
           height="100%"
-          pt="36"
+          pt="96"
           pr="10"
           textAlign="right"
         >
