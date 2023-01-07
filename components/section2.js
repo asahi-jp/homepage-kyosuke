@@ -77,11 +77,13 @@ export default function Section2() {
           <Text color="white" fontSize="5xl" letterSpacing={5}>基礎</Text>
           <Text mt="5" color="white" fontSize="sm" lineHeight={2} >
             大学3年のシーズンに技術選に挑戦<br />
-            初出場で種目別5位などを獲り、スーパーファイナルに進出し総合22位<br />
+            初出場で種目別5位などを獲り、<br />
+            スーパーファイナルに進出し総合22位<br />
             アルペンと基礎の二刀流スキーヤーとしてピックアップされる<br />
             2019年8月号発売のSKI GRAPHICで学生初の表紙を飾る<br />
             基礎の方でも学生チャンピオンとなり、<br />
-            2020年8月号発売のSKI GRAPHICの表紙を飾り、10月号では特集を掲載<br />
+            2020年8月号発売のSKI GRAPHICの表紙を飾り、<br />
+            10月号では特集を掲載<br />
             2020年4月にHEAD Japanに入社し、活動中<br />
             現在も二刀流スキーヤーとして、大会出場・イベント等に参加<br />
           </Text>
