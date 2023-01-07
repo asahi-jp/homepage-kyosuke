@@ -73,14 +73,22 @@ export default function Section1() {
           width="100%"
           height="100%"
           pt="96"
-          pl="10"
+          pl="5"
         >
-          <Text color="white" fontSize="5xl">アルペンスキー</Text>
-          <Text color="white" fontSize="xl">hogehogehogehogehoge</Text>
-          <Text color="white" fontSize="xl">hogehogehogehogehoge</Text>
-          <Text color="white" fontSize="xl">hogehogehogehogehoge</Text>
-          <Text color="white" fontSize="xl">hogehogehogehogehoge</Text>
-          <Text color="white" fontSize="xl">hogehogehogehogehoge</Text>
+          <Text color="white" fontSize="5xl" letterSpacing={5}>アルペンスキー</Text>
+          <Text mt="5" color="white" fontSize="sm" lineHeight={2} >
+            小学校から地元青森県大鰐町でアルペンスキーを始める<br />
+            全国大会で優勝し、オリンピックを目標に掲げる<br />
+            中学では、東北大会で2冠・全国規模の大会でも優勝し、国際大会に出場し10位入賞<br />
+            全日本ジュニア強化指定選手にも選出<br />
+            高2のシーズンに全国大会で種目別優勝し、個人総合でも優勝<br />
+            高校最後のインターハイでは地元大鰐町で6位入賞<br />
+            札幌国体5位、富山国体6位　入賞<br />
+            FAR EAST CUP(アジア国際大会) 複合競技10位入賞<br />
+            大学4年のシーズンは日本大学スキー部アルペンチーフとして<br />
+            全日本学生チャンピオン　SG2位/GS3位/SL2位<br />
+            インカレもアルペン部門1位で、男子総合優勝にも貢献
+          </Text>
         </Box>
       </Box>
     </Box>

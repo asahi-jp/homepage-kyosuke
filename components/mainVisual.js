@@ -121,7 +121,7 @@ export default function MainVisual() {
           height="100%"
           display="flex"
           flexDirection="column"
-          paddingTop="30vh"
+          paddingTop="25vh"
           paddingLeft="5"
         >
           <Text 
