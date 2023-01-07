@@ -34,13 +34,15 @@ export default function MainVisual() {
   // アニメーション
   useEffect(() => {
     setTimeout(() => {
-      text1.current.style.opacity = "1"
-      text1.current.style.transform = "translateY(0px)"
       scroll.current.style.opacity = "1"
       scroll.current.style.transform = "translateY(0px)"
       setTimeout(() => {
-        text2.current.style.opacity = "1"
-        text2.current.style.transform = "translateY(0px)"
+        text1.current.style.opacity = "1"
+        text1.current.style.transform = "translateY(0px)"
+        setTimeout(() => {
+          text2.current.style.opacity = "1"
+          text2.current.style.transform = "translateY(0px)"
+        }, 500)
       }, 500)
     }, 3500)
   }, [])
