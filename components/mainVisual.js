@@ -31,7 +31,6 @@ export default function MainVisual() {
     }
   }, [inView])
 
-  // アニメーション
   useEffect(() => {
     scroll.current.style.height = window.innerHeight + "px"
     setTimeout(() => {
@@ -154,7 +153,7 @@ export default function MainVisual() {
         <Box
           ref={scroll}
           position="absolute"
-          bottom="0"
+          top="0"
           width="100%"
           display="flex"
           justifyContent="center"
