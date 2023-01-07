@@ -42,8 +42,8 @@ export default function MainVisual() {
         setTimeout(() => {
           text2.current.style.opacity = "1"
           text2.current.style.transform = "translateY(0px)"
-        }, 500)
-      }, 500)
+        }, 100)
+      }, 100)
     }, 3500)
   }, [])
 
