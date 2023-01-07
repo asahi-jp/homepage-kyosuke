@@ -32,7 +32,7 @@ export default function MainVisual() {
   }, [inView])
 
   useEffect(() => {
-    scroll.current.style.height = window.innerHeight + "px"
+    // scroll.current.style.height = window.innerHeight + "px"
     setTimeout(() => {
       scroll.current.style.opacity = "1"
       scroll.current.style.transform = "translateY(0px)"
@@ -151,6 +151,7 @@ export default function MainVisual() {
           >Yamada</Text>
         </Box>
         <Box
+          className='scroll'
           ref={scroll}
           position="absolute"
           top="0"
