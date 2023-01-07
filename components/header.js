@@ -88,7 +88,6 @@ export default function Header() {
             <DrawerCloseButton />
             <DrawerBody>
               Top
-              <a href="/tmp">tmp</a>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

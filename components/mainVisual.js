@@ -152,7 +152,9 @@ export default function MainVisual() {
           display="flex"
           justifyContent="center"
         >
-        <div class="scrolldown3"><span>Scroll</span></div>
+        <div class="scrolldown3">
+          <span>Scroll</span>
+        </div>
         </Box>
       </Box>
     </>
