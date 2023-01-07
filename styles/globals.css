@@ -13,10 +13,10 @@ html {
 }
 
 .scroll {
-  height: 100svh;
+  height: 100dvh;
 }
 
-.scrolldown3{
+.scrolldown{
   /*描画位置※位置は適宜調整してください*/
 position:absolute;
 bottom:10px;
@@ -33,7 +33,7 @@ animation:mousemove 1.6s ease-in-out infinite;
 }
 
 /*Scrollテキストの描写*/
-.scrolldown3 span{
+.scrolldown span{
   position: absolute;
   left:-15px;
   bottom:45px;
@@ -43,7 +43,7 @@ animation:mousemove 1.6s ease-in-out infinite;
 }
 
 /*マウスの中の線描写 */
-.scrolldown3 span::after{
+.scrolldown span::after{
   content: "";
   position: absolute;
   top:10px;
@@ -75,7 +75,7 @@ animation:mousemove 1.6s ease-in-out infinite;
 }
 
 /*マウスの描写 */
-.scrolldown3:before {
+.scrolldown:before {
   content: "";
   position: absolute;
   bottom:0;
@@ -87,7 +87,7 @@ animation:mousemove 1.6s ease-in-out infinite;
 }
 
 /*マウスの中の丸の描写*/
-.scrolldown3:after{
+.scrolldown:after{
   content:"";
   position: absolute;
   bottom:26px;

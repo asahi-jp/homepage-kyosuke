@@ -19,13 +19,14 @@ export default function Loading() {
           ref={overlay}
           position="absolute"
           top="0"
+          pt="50dvh"
+          mt="-40px"
           backgroundColor="black"
           width="100%"
           height="100%"
           zIndex="10"
           display="flex"
           justifyContent="center"
-          pt="40vh"
           opacity="1"
           transition="all 0.5s"
           >

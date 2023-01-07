@@ -32,7 +32,6 @@ export default function MainVisual() {
   }, [inView])
 
   useEffect(() => {
-    // scroll.current.style.height = window.innerHeight + "px"
     setTimeout(() => {
       scroll.current.style.opacity = "1"
       scroll.current.style.transform = "translateY(0px)"
@@ -42,8 +41,8 @@ export default function MainVisual() {
         setTimeout(() => {
           text2.current.style.opacity = "1"
           text2.current.style.transform = "translateY(0px)"
-        }, 100)
-      }, 100)
+        }, 300)
+      }, 300)
     }, 3500)
   }, [])
 
@@ -162,7 +161,7 @@ export default function MainVisual() {
           transition="all 1s"
           transform="translateY(20px)"
         >
-          <div class="scrolldown3">
+          <div class="scrolldown">
             <span>Scroll</span>
           </div>
         </Box>
