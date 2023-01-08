@@ -17,7 +17,7 @@ export default function Section6() {
           gridTemplateColumns="1fr 1fr"
           gridGap="3"
           w="100%" 
-          px="5"
+          // px="5"
           >
           <Box display="flex" flexDirection="column" gap="3">
             <Image
