@@ -32,8 +32,8 @@ export default function Section3() {
           mx="auto"
           w="90vw"
           bg="white" 
-          py="10"
-          px="8"
+          py="8"
+          px="5"
           borderRadius="10"
           position="relative"
           zIndex={1}
@@ -42,7 +42,7 @@ export default function Section3() {
           opacity="0"
           >
           <Text fontSize="2xl" fontWeight="bold">Profile</Text>
-          <Text mt="1" lineHeight={2}>
+          <Text mt="1" lineHeight={1.5}>
             山田　椋喬（やまだ　きょうすけ）<br />
             1997年7月8日　25歳<br />
             出身：青森県<br />
