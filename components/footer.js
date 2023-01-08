@@ -5,10 +5,10 @@ export default function Footer() {
     <footer>
       <Box borderTop="1px solid white">
         フッター<br />
-        SNS<br />
-        ギャラリー<br />
         マテリアル<br />
+        SNS<br />
         スポンサー募集中<br />
+        お問い合わせ<br />
         コピーライト
       </Box>
     </footer>

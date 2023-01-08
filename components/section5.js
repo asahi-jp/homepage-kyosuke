@@ -10,6 +10,10 @@ import {
   CardFooter
  } from '@chakra-ui/react'
 
+ import PostCard from './postCard'
+
+ const len = [1, 2, 3]
+
 export default function Section5() {
   return (
     <>
@@ -22,30 +26,9 @@ export default function Section5() {
         </CardHeader>
         <CardBody pt="0" px="5" color="white">
           <Stack divider={<StackDivider />} spacing='4'>
-            <Box py="5">
-              <Heading size='md' textTransform='uppercase'>
-                Summary
-              </Heading>
-              <Text pt='2' fontSize='sm'>
-                View a summary of all your clients over the last month.
-              </Text>
-            </Box>
-            <Box py="5"> 
-              <Heading size='md' textTransform='uppercase'>
-                Overview
-              </Heading>
-              <Text pt='2' fontSize='sm'>
-                Check out the overview of your clients.
-              </Text>
-            </Box>
-            <Box py="5">
-              <Heading size='md' textTransform='uppercase'>
-                Analysis
-              </Heading>
-              <Text pt='2' fontSize='sm'>
-                See a detailed analysis of all your business clients.
-              </Text>
-            </Box>
+            {len.map((l) => (
+              <PostCard key={l}/>
+            ))}
           </Stack>
         </CardBody>
       </Card>
