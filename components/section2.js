@@ -75,7 +75,7 @@ export default function Section2() {
           textAlign="right"
         >
           <Text color="white" fontSize="4xl" letterSpacing={5} fontWeight="bold">基礎</Text>
-          <Text mt="5" color="white" fontSize="sm" lineHeight={2} >
+          <Text mt="5" color="white" fontSize="xs" lineHeight={2} >
             大学3年のシーズンに技術選に挑戦<br />
             初出場で種目別5位などを獲り、<br />
             スーパーファイナルに進出し総合22位<br />
