@@ -33,7 +33,7 @@ export default function Header() {
       top={0}
       right={0}
       pt="5" pr="5"
-      zIndex={1}
+      zIndex={100}
       >
       <header>
         <Box 
@@ -89,16 +89,6 @@ export default function Header() {
             <DrawerCloseButton />
             <DrawerBody mt="24">
               <Text fontSize="3xl">Top</Text>
-              <Box mt="36">
-                <Text fontSize="2xl">Profile</Text>
-                <Text pl="2" mt="5" lineHeight={2}>
-                  山田　椋喬（やまだ　きょうすけ）<br />
-                  1997年7月8日　25歳<br />
-                  出身：青森県<br />
-                  出身校：東奥義塾高校・日本大学<br />
-                  所属先：HEAD Japan ヘッドスキークラブ<br />
-                </Text>
-              </Box>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

@@ -7,14 +7,14 @@ export default function Section1() {
   const img = useRef()
   const texts = useRef()
   const { ref, inView, entry } = useInView({
-    rootMargin: "200px",
+    rootMargin: "0px",
   })
 
   const onScroll = () => {
     const viewPort = window.innerHeight
     const scrollY = window.pageYOffset
     const viewBottom = viewPort + scrollY
-    const topPosition = viewBottom - position + 200
+    const topPosition = viewBottom - position
     img.current.style.transform = `scale(1.5) translateY(${topPosition * 0.1}px)`
     texts.current.style.transform = `translateY(${topPosition * -0.3}px)`
   }
@@ -30,10 +30,10 @@ export default function Section1() {
   useEffect(() => {
     const clientRect = img.current.getBoundingClientRect() ;
     setPosition(clientRect.top)
-  }, [position])
+  }, [])
 
   return (
-    <Box h="100vh" py="96">
+    <Box mt="96">
       <Box position="relative">
         <Box 
           ref={ref}

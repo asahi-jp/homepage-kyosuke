@@ -161,7 +161,7 @@ export default function MainVisual() {
           transition="all 1s"
           transform="translateY(20px)"
         >
-          <div class="scrolldown">
+          <div className="scrolldown">
             <span>Scroll</span>
           </div>
         </Box>

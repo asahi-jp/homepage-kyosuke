@@ -7,7 +7,7 @@ export default function Section2() {
   const img = useRef()
   const texts = useRef()
   const { ref, inView, entry } = useInView({
-    rootMargin: "200px",
+    rootMargin: "0px",
   })
 
   const onScroll = () => {
@@ -33,7 +33,7 @@ export default function Section2() {
   }, [position])
 
   return (
-    <Box h="100vh" py="96">
+    <Box mt="96">
       <Box position="relative">
         <Box 
           ref={ref}
