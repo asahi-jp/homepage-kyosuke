@@ -14,14 +14,14 @@ export default function Section4() {
 
   return (
     <Box 
-      mt="96" 
+      mt="56"
       overflow="hidden"
       position="relative"
       >
-      <Box display="flex" pl="10">
+      <Box display="flex" pl="5">
         <Text color="white" fontSize="4xl" fontWeight="bold" borderBottom="1px solid">Movies</Text>
       </Box>
-      <Box mt="5" h="48vh" w="85%" mx="auto">
+      <Box mt="10" h="36vh" w="85%" mx="auto">
         <Swiper
           autoplay={{
             delay: 2500,

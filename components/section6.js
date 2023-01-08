@@ -7,8 +7,8 @@ import {
 export default function Section6() {
   return (
     <>
-      <Box mt="96">
-        <Box display="flex" pl="10">
+      <Box mt="56">
+        <Box display="flex" pl="5">
           <Text color="white" fontSize="4xl" fontWeight="bold" borderBottom="1px solid">Gallary</Text>
         </Box>
         <Box 
@@ -17,7 +17,7 @@ export default function Section6() {
           gridTemplateColumns="1fr 1fr"
           gridGap="3"
           w="100%" 
-          px="10"
+          px="5"
           >
           <Box display="flex" flexDirection="column" gap="3">
             <Image
@@ -31,7 +31,7 @@ export default function Section6() {
               objectFit='cover'
             />
             <Image
-              src="/images/yamada_01.jpg"
+              src="/images/yamada_05.jpg"
               alt='Dan Abramov' 
               objectFit='cover'
             />
@@ -39,12 +39,12 @@ export default function Section6() {
           </Box>
           <Box display="flex" flexDirection="column" gap="3">
             <Image
-              src="/images/yamada_02.jpg"
+              src="/images/yamada_06.jpg"
               alt='Dan Abramov' 
               objectFit='cover'
             />
             <Image
-              src="/images/yamada_01.jpg"
+              src="/images/yamada_08.PNG"
               alt='Dan Abramov' 
               objectFit='cover'
             />

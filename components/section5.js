@@ -13,14 +13,14 @@ import {
 export default function Section5() {
   return (
     <>
-      <Card mt="96">
-        <Box display="flex" pl="10">
+      <Card mt="56">
+        <Box display="flex" pl="5">
           <Text color="white" fontSize="4xl" fontWeight="bold" borderBottom="1px solid">Posts</Text>
         </Box>
-        <CardHeader pl="10">
+        <CardHeader mt="10" pl="5">
           <Heading size='md' color="white">活動報告</Heading>
         </CardHeader>
-        <CardBody pt="0" px="10" color="white">
+        <CardBody pt="0" px="5" color="white">
           <Stack divider={<StackDivider />} spacing='4'>
             <Box py="5">
               <Heading size='md' textTransform='uppercase'>

@@ -25,7 +25,7 @@ export default function Home() {
       <Section4 />
       <Section5 />
       <Section6 />
-      <Box mt="96"></Box>
+      <Box mt="56"></Box>
       <Loading />
     </>
   )
