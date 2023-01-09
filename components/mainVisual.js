@@ -1,13 +1,21 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Image, Text } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/css'; 
 
+const imgUrls = [
+  "yamada_23.JPG",
+  "yamada_01.jpg",
+  "yamada_07.JPG"
+]
+
 export default function MainVisual() {
+  const [activeImgIndex, setActiveImgIndex] = useState(0)
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
+  const images = [img1, img2, img3]
   const texts = useRef()
   const text1 = useRef()
   const text2 = useRef()
@@ -16,18 +24,22 @@ export default function MainVisual() {
     rootMargin: '0px',
   });
 
-  const onScroll = () => {
-    const scrollY = window.pageYOffset
-    img1.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    // img2.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    // img3.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    // texts.current.style.transform = `translateY(${scrollY * 0.4}px)`
+  useEffect(() => {
+    setTimeout(() => images[activeImgIndex].current.style.transform = `scale(1) translateX(0)`)
+    let nextIndex = activeImgIndex + 1 == images.length
+      ? 0
+      : activeImgIndex + 1
+    images[nextIndex].current.style.transform = `scale(2) translateX(-100vw)`
+  }, [activeImgIndex])
+
+  const onChange = (n) => {
+    setActiveImgIndex(n)
   }
 
   useEffect(() => {
     if(inView) {
-      document.addEventListener('scroll', onScroll)
-      return () => document.removeEventListener('scroll', onScroll)
+      // document.addEventListener('scroll', onScroll)
+      // return () => document.removeEventListener('scroll', onScroll)
     }
   }, [inView])
 
@@ -54,67 +66,38 @@ export default function MainVisual() {
         h="100vh"
         overflow="hidden"
       >
-        <Image
-              ref={img1}
-              src="/images/yamada_23.JPG"
-              alt='Dan Abramov' 
-              objectFit='cover'
-              position="absolute"
-              top="0"
-              width="100%"
-              height="100%"
-            />
-        {/* <Splide
+        <Splide
+          onMove={(splide, newIndex) => onChange(newIndex)}
           aria-label="私のお気に入りの画像集"
           options={{
             type: "fade",
             rewind: true,
-            speed: "1000",
+            speed: "2000",
             padding: 0,
             arrows: false,
             pagination: false,
             autoplay: true, // 自動再生を有効
-            interval: 7000, // 自動再生の間隔を3秒に設定
+            interval: 3000, // 自動再生の間隔を3秒に設定
             height: "100vh"
           }}
           >
-          <SplideSlide>
-            <Image
-              ref={img1}
-              src="/images/yamada_23.JPG"
-              alt='Dan Abramov' 
-              objectFit='cover'
-              position="absolute"
-              top="0"
-              width="100%"
-              height="100%"
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <Image
-              ref={img2}
-              src="/images/yamada_01.jpg"
-              alt='Dan Abramov' 
-              objectFit='cover'
-              position="absolute"
-              top="0"
-              width="100%"
-              height="100%"
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <Image
-              ref={img3}
-              src="/images/yamada_07.JPG"
-              alt='Dan Abramov' 
-              objectFit='cover'
-              position="absolute"
-              top="0"
-              width="100%"
-              height="100%"
-            />
-          </SplideSlide>
-        </Splide> */}
+          {imgUrls.map((imgUrl, i) => (
+            <SplideSlide key={imgUrl}>
+              <Image
+                ref={images[i]}
+                src={`/images/${imgUrl}`}
+                alt='Dan Abramov' 
+                objectFit='cover'
+                position="absolute"
+                top="0"
+                width="100%"
+                height="100%"
+                transform="scale(2) translateX(-100vw)"
+                transition="all 1.5s"
+              />
+            </SplideSlide>
+          ))}
+        </Splide>
         <Box
           position="absolute"
           top="0"
