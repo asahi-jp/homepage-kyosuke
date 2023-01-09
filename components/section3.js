@@ -19,14 +19,13 @@ export default function Section3() {
     // カード位置の初期化
     if(cardPositionY) {
       const viewBottom = window.pageYOffset + window.innerHeight
-      card.current.style.transform = `translateY(-${(viewBottom - cardPositionY) / 10}px)`
+      card.current.style.transform = `scale(1 + ${(viewBottom - cardPositionY) / 1000})`
     }
   }, [cardPositionY])
   
-  // スクロールごとにビューポートに対するカートの位置を割合で取得して位置をセット
   const onScroll = () => {
     const viewBottom = window.pageYOffset + window.innerHeight
-    card.current.style.transform = `translateY(-${(viewBottom - cardPositionY) / 10}px)`
+    card.current.style.transform = `scale(${(viewBottom - cardPositionY) / 1000})`
   }
 
   useEffect(() => {

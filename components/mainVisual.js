@@ -19,9 +19,9 @@ export default function MainVisual() {
   const onScroll = () => {
     const scrollY = window.pageYOffset
     img1.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    img2.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    img3.current.style.transform = `translateY(${scrollY * 0.6}px)`
-    texts.current.style.transform = `translateY(${scrollY * 0.4}px)`
+    // img2.current.style.transform = `translateY(${scrollY * 0.6}px)`
+    // img3.current.style.transform = `translateY(${scrollY * 0.6}px)`
+    // texts.current.style.transform = `translateY(${scrollY * 0.4}px)`
   }
 
   useEffect(() => {
@@ -54,7 +54,17 @@ export default function MainVisual() {
         h="100vh"
         overflow="hidden"
       >
-        <Splide
+        <Image
+              ref={img1}
+              src="/images/yamada_23.JPG"
+              alt='Dan Abramov' 
+              objectFit='cover'
+              position="absolute"
+              top="0"
+              width="100%"
+              height="100%"
+            />
+        {/* <Splide
           aria-label="私のお気に入りの画像集"
           options={{
             type: "fade",
@@ -104,7 +114,7 @@ export default function MainVisual() {
               height="100%"
             />
           </SplideSlide>
-        </Splide>
+        </Splide> */}
         <Box
           position="absolute"
           top="0"
