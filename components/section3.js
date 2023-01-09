@@ -4,15 +4,13 @@ import { useInView } from 'react-intersection-observer';
 
 export default function Section3() {
   const [cardPositionY, setCardPositionY] = useState()
-  const [innerHeight, setInnerHeight] = useState()
   const card = useRef()
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     rootMargin: "0px",
   })
 
   // 初期化
   useEffect(() => {
-    setInnerHeight(window.innerHeight)
     // カード位置を取得
     const cardTop = card.current.getBoundingClientRect().top
     const scrollY = window.pageYOffset
@@ -20,32 +18,22 @@ export default function Section3() {
 
     // カード位置の初期化
     if(cardPositionY) {
-      const viewTop = window.pageYOffset
-      const percent = ((cardPositionY - viewTop) / innerHeight) * 100
-      if(percent >= 50) {
-        card.current.style.transform = `translateY(${(percent - 50) * 2}px)`
-      } else if(percent >= 0) {
-        card.current.style.transform = `translateY(${-(200 - (percent * 2))}px)`
-      }
+      const viewBottom = window.pageYOffset + window.innerHeight
+      card.current.style.transform = `translateY(-${(viewBottom - cardPositionY) / 10}px)`
     }
   }, [cardPositionY])
   
   // スクロールごとにビューポートに対するカートの位置を割合で取得して位置をセット
   const onScroll = () => {
-    const viewTop = window.pageYOffset
-    // カードの位置はビューポート内の何%か（カードの位置 / ビューポート * 100）
-    const percent = ((cardPositionY - viewTop) / innerHeight) * 100
-
-    if(percent >= 50) {
-      card.current.style.transform = `translateY(${(percent - 50) * 2}px)`
-    } else {
-      card.current.style.transform = `translateY(${-(100 - (percent * 2))}px)`
-    }
+    const viewBottom = window.pageYOffset + window.innerHeight
+    card.current.style.transform = `translateY(-${(viewBottom - cardPositionY) / 10}px)`
   }
 
   useEffect(() => {
-    document.addEventListener('scroll', onScroll)
-    return () => document.removeEventListener('scroll', onScroll)
+    if(inView) {
+      document.addEventListener('scroll', onScroll)
+      return () => document.removeEventListener('scroll', onScroll)
+    }
   }, [inView])
 
   return (
@@ -61,7 +49,7 @@ export default function Section3() {
       <Box ref={ref}>
         <Box 
           ref={card}
-          mt="-100px"
+          mt="-50px"
           mx="auto"
           w="90vw"
           bg="white" 
@@ -71,8 +59,6 @@ export default function Section3() {
           position="relative"
           top="0"
           zIndex={1}
-          transition="all 0.1s"
-          transform="translateY(100px)"
           >
           <Text fontSize="2xl" fontWeight="bold">Profile</Text>
           <Text mt="1" lineHeight={1.5}>
