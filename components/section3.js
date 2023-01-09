@@ -58,6 +58,7 @@ export default function Section3() {
           borderRadius="10"
           position="relative"
           top="0"
+          transition="all 0.1s"
           zIndex={1}
           >
           <Text fontSize="2xl" fontWeight="bold">Profile</Text>
