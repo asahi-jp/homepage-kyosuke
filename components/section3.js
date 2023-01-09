@@ -3,50 +3,49 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export default function Section3() {
-  // const [scrollY, setScrollY] = useState()
-  // let scrollY= 0
+  const [cardPositionY, setCardPositionY] = useState()
+  const [innerHeight, setInnerHeight] = useState()
   const card = useRef()
   const { ref, inView, entry } = useInView({
     rootMargin: "0px",
   })
 
-  // console.log(scrollY)
+  // 初期化
+  useEffect(() => {
+    setInnerHeight(window.innerHeight)
+    // カード位置を取得
+    const cardTop = card.current.getBoundingClientRect().top
+    const scrollY = window.pageYOffset
+    setCardPositionY(cardTop + scrollY)
 
+    // カード位置の初期化
+    if(cardPositionY) {
+      const viewTop = window.pageYOffset
+      const percent = ((cardPositionY - viewTop) / innerHeight) * 100
+      if(percent >= 50) {
+        card.current.style.transform = `translateY(${(percent - 50) * 2}px)`
+      } else if(percent >= 0) {
+        card.current.style.transform = `translateY(${-(200 - (percent * 2))}px)`
+      }
+    }
+  }, [cardPositionY])
+  
+  // スクロールごとにビューポートに対するカートの位置を割合で取得して位置をセット
   const onScroll = () => {
-    console.log("card.scrollY", card.scrollY)
-    console.log("現在の高さ", window.pageYOffset)
-    const result = window.pageYOffset - card.scrollY
-    console.log("計算結果", result)
+    const viewTop = window.pageYOffset
+    // カードの位置はビューポート内の何%か（カードの位置 / ビューポート * 100）
+    const percent = ((cardPositionY - viewTop) / innerHeight) * 100
 
-    // 元の数に足す
-    const transform = card.current.style.transform
-    const num = transform.replace(/[^-0-9]/g, '');
-
-
-    // 
-
-    // if(Math.sign(result) == -1) {
-    //   card.current.style.transform = `translateY(${result * 0.2}px)`
-    //   return
-    // }
-    card.current.style.transform = `translateY(-${result * 0.2}px)`
+    if(percent >= 50) {
+      card.current.style.transform = `translateY(${(percent - 50) * 2}px)`
+    } else {
+      card.current.style.transform = `translateY(${-(100 - (percent * 2))}px)`
+    }
   }
 
   useEffect(() => {
-    if(inView) {
-      // ここで初期化
-      // ビューポートの高さを取得
-      // setScrollY(window.pageYOffset)
-      // scrollY = window.pageYOffset
-      card.scrollY = window.pageYOffset
-      // scrollYと比較
-
-      card.current.style.opacity = 1
-      // card.current.style.transform = "translateY(0px)"
-
-      document.addEventListener('scroll', onScroll)
-      return () => document.removeEventListener('scroll', onScroll)
-    }
+    document.addEventListener('scroll', onScroll)
+    return () => document.removeEventListener('scroll', onScroll)
   }, [inView])
 
   return (
@@ -62,7 +61,7 @@ export default function Section3() {
       <Box ref={ref}>
         <Box 
           ref={card}
-          mt="-5"
+          mt="-100px"
           mx="auto"
           w="90vw"
           bg="white" 
@@ -70,10 +69,10 @@ export default function Section3() {
           px="5"
           borderRadius="10"
           position="relative"
+          top="0"
           zIndex={1}
-          // transition="all 1s"
-          transform="translateY(0px)"
-          opacity="0"
+          transition="all 0.1s"
+          transform="translateY(100px)"
           >
           <Text fontSize="2xl" fontWeight="bold">Profile</Text>
           <Text mt="1" lineHeight={1.5}>
