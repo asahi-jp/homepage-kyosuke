@@ -33,7 +33,6 @@ export default function Section4() {
   })
 
   useEffect(() => {
-    console.log(inView)
     if(inView) {
       videos.current.style.opacity = 1
       videos.current.style.transform = `translateY(0px)`
