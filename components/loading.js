@@ -3,14 +3,14 @@ import { Box } from '@chakra-ui/react'
 import { ProgressBar } from  'react-loader-spinner'
 
 export default function Loading() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const overlay = useRef()
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     overlay.current.style.transform = "translateX(100vw)"
-  //     setTimeout(() => setIsLoading(false), 500)
-  //   }, 3000)
-  // }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      overlay.current.style.transform = "translateX(100vw)"
+      setTimeout(() => setIsLoading(false), 500)
+    }, 3000)
+  }, [])
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function Loading() {
           backgroundColor="black"
           width="100%"
           height="100%"
-          zIndex="10"
+          zIndex="100"
           display="flex"
           justifyContent="center"
           opacity="1"

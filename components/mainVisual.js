@@ -12,6 +12,7 @@ const imgUrls = [
 
 export default function MainVisual() {
   const [activeImgIndex, setActiveImgIndex] = useState(0)
+  const [isMainVisual, setIsMainVisual] = useState(false)
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
@@ -24,15 +25,23 @@ export default function MainVisual() {
 
   useEffect(() => {
     setTimeout(() => {
-      images[activeImgIndex].current.style.transform = "scale(1)"
-      images[activeImgIndex].current.style.left = "0"
-    })
-    let nextIndex = activeImgIndex + 1 == images.length
-      ? 0
-      : activeImgIndex + 1
-    images[nextIndex].current.style.transform = "scale(2)"
-    images[nextIndex].current.style.left = "-200vw"
-  }, [activeImgIndex])
+      setIsMainVisual(true)
+    }, 3000)
+  }, [])
+
+  useEffect(() => {
+    if(isMainVisual) {
+      setTimeout(() => {
+        images[activeImgIndex].current.style.transform = "scale(1)"
+        images[activeImgIndex].current.style.left = "0"
+      })
+      let nextIndex = activeImgIndex + 1 == images.length
+        ? 0
+        : activeImgIndex + 1
+      images[nextIndex].current.style.transform = "scale(2)"
+      images[nextIndex].current.style.left = "-200vw"
+    }
+  }, [isMainVisual, activeImgIndex])
 
   const onChange = (n) => {
     setActiveImgIndex(n)
@@ -60,40 +69,52 @@ export default function MainVisual() {
         h="100vh"
         overflow="hidden"
       >
-        <Splide
-          onMove={(splide, newIndex) => onChange(newIndex)}
-          aria-label="私のお気に入りの画像集"
-          options={{
-            type: "fade",
-            rewind: true,
-            speed: "4000",
-            padding: 0,
-            arrows: false,
-            pagination: false,
-            autoplay: true, // 自動再生を有効
-            interval: 5000, // 自動再生の間隔を3秒に設定
-            height: "100vh"
-          }}
-          >
-          {imgUrls.map((imgUrl, i) => (
-            <SplideSlide key={imgUrl}>
-              <Image
-                ref={images[i]}
-                src={`/images/${imgUrl}`}
-                alt='Dan Abramov' 
-                objectFit='cover'
-                position="absolute"
-                top="0"
-                left="-200vw"
-                width="100%"
-                height="100%"
-                transform="scale(2)"
-                transition="left 1s, transform 5s"
-                transitionTimingFunction="ease-out"
-              />
-            </SplideSlide>
-          ))}
-        </Splide>
+        {isMainVisual ? (
+          <Splide
+            onMove={(splide, newIndex) => onChange(newIndex)}
+            aria-label="私のお気に入りの画像集"
+            options={{
+              type: "fade",
+              rewind: true,
+              speed: "4000",
+              padding: 0,
+              arrows: false,
+              pagination: false,
+              autoplay: true, // 自動再生を有効
+              interval: 5000, // 自動再生の間隔を3秒に設定
+              height: "100vh"
+            }}
+            >
+            {imgUrls.map((imgUrl, i) => (
+              <SplideSlide key={imgUrl}>
+                <Image
+                  ref={images[i]}
+                  src={`/images/${imgUrl}`}
+                  alt='Dan Abramov' 
+                  objectFit='cover'
+                  position="absolute"
+                  top="0"
+                  left="-200vw"
+                  width="100%"
+                  height="100%"
+                  transform="scale(2)"
+                  transition="left 1s, transform 5s"
+                  transitionTimingFunction="ease-out"
+                />
+              </SplideSlide>
+            ))}
+          </Splide>
+        ) : (
+          <Image
+            src={`/images/yamada_23.JPG`}
+            alt='Dan Abramov' 
+            objectFit='cover'
+            position="absolute"
+            top="0"
+            width="100%"
+            height="100%"
+          />
+        )}
         <Box
           position="absolute"
           top="0"
