@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 export default function Image({ name }) {
   const img = useRef()
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     rootMargin: "0px",
   })
 
@@ -12,6 +12,9 @@ export default function Image({ name }) {
     if(inView) {
       img.current.style.transform = "translateY(0px)"
       img.current.style.opacity = "1"
+    } else {
+      img.current.style.transform = "translateY(100px)"
+      img.current.style.opacity = "0"
     }
   }, [inView])
 

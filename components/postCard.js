@@ -16,6 +16,9 @@ export default function PostCard() {
     if(inView) {
       card.current.style.transform = "translateY(0px)"
       card.current.style.opacity = "1"
+    } else {
+      card.current.style.transform = "translateY(100px)"
+      card.current.style.opacity = "0"
     }
   }, [inView])
 

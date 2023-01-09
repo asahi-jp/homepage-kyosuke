@@ -3,35 +3,18 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export default function Section3() {
-  const [cardPositionY, setCardPositionY] = useState()
   const card = useRef()
   const { ref, inView } = useInView({
     rootMargin: "0px",
   })
 
-  // 初期化
-  useEffect(() => {
-    // カード位置を取得
-    const cardTop = card.current.getBoundingClientRect().top
-    const scrollY = window.pageYOffset
-    setCardPositionY(cardTop + scrollY)
-
-    // カード位置の初期化
-    if(cardPositionY) {
-      const viewBottom = window.pageYOffset + window.innerHeight
-      card.current.style.transform = `scale(1 + ${(viewBottom - cardPositionY) / 1000})`
-    }
-  }, [cardPositionY])
-  
-  const onScroll = () => {
-    const viewBottom = window.pageYOffset + window.innerHeight
-    card.current.style.transform = `scale(${(viewBottom - cardPositionY) / 1000})`
-  }
-
   useEffect(() => {
     if(inView) {
-      document.addEventListener('scroll', onScroll)
-      return () => document.removeEventListener('scroll', onScroll)
+      card.current.style.opacity = 1
+      card.current.style.transform = `translateY(0px)`
+    } else {
+      card.current.style.opacity = 0
+      card.current.style.transform = `translateY(100px)`
     }
   }, [inView])
 
@@ -57,8 +40,10 @@ export default function Section3() {
           borderRadius="10"
           position="relative"
           top="0"
-          transition="all 0.1s"
           zIndex={1}
+          transition="all 1s"
+          opacity="0"
+          transform="translateY(100px)"
           >
           <Text fontSize="2xl" fontWeight="bold">Profile</Text>
           <Text mt="1" lineHeight={1.5}>

@@ -8,11 +8,11 @@ import {
   CardHeader, 
   CardBody, 
   CardFooter
- } from '@chakra-ui/react'
+} from '@chakra-ui/react'
 
- import PostCard from './postCard'
+import PostCard from './postCard'
 
- const len = [1, 2, 3]
+const len = [1, 2, 3]
 
 export default function Section5() {
   return (

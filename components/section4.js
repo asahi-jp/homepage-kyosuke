@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import {
   useDisclosure,
   Box, 
@@ -5,6 +6,7 @@ import {
 } from '@chakra-ui/react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper";
+import { useInView } from 'react-intersection-observer';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,7 +14,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
 import Modal from './modal';
-import { useState } from 'react';
 
 const urls = [
   "xemkG83PXCo",
@@ -25,7 +26,22 @@ const urls = [
 
 export default function Section4() {
   const [url, setUrl] = useState()
+  const videos = useRef()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { ref, inView } = useInView({
+    rootMargin: "0px",
+  })
+
+  useEffect(() => {
+    console.log(inView)
+    if(inView) {
+      videos.current.style.opacity = 1
+      videos.current.style.transform = `translateY(0px)`
+    } else {
+      videos.current.style.opacity = 0
+      videos.current.style.transform = `translateY(100px)`
+    }
+  }, [inView])
 
   const handleClick = (url) => {
     setUrl(url)
@@ -38,10 +54,20 @@ export default function Section4() {
         <Text color="white" fontSize="4xl" fontWeight="bold" borderBottom="1px solid">Movies</Text>
       </Box>
       <Box 
+        ref={ref}
         overflow="hidden"
         position="relative"
         >
-        <Box mt="10" h="32vh" px="14" pb="10">
+        <Box 
+          ref={videos} 
+          mt="10" 
+          h="32vh" 
+          px="14" 
+          pb="10"
+          transition="all 1s"
+          opacity="0"
+          transform="translateY(100px)"
+          >
           <Swiper
             autoplay={{
               delay: 2500,
