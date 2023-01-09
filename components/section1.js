@@ -3,43 +3,54 @@ import { Box, Image, Text } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer';
 
 export default function Section1() {
-  const [position, setPosition] = useState(0)
+  const [imgPositionY, setImgPositionY] = useState(0)
   const img = useRef()
+  const texts = useRef()
   const { ref, inView } = useInView({
     rootMargin: "0px",
   })
 
-  const onScroll = () => {
-    const viewPort = window.innerHeight
+  // 初期化
+  useEffect(() => {
+    const imgTop = img.current.getBoundingClientRect().top
     const scrollY = window.pageYOffset
-    const viewBottom = viewPort + scrollY
-    const topPosition = viewBottom - position
-    img.current.style.transform = `scale(1.5) translateY(${topPosition * 0.1}px)`
+    setImgPositionY(imgTop + scrollY)
+    if(imgPositionY) {
+      const viewBottom = window.pageYOffset + window.innerHeight
+      if((viewBottom - imgPositionY) * 0.08 < 0 ) {
+        img.current.style.transform = `scale(1.5) translateY(0px)`
+      } else {
+        img.current.style.transform = `scale(1.5) translateY(${(viewBottom - imgPositionY) * 0.1}px)`
+      }
+    }
+  }, [imgPositionY])
+
+  const onScroll = () => {
+    const viewBottom = window.pageYOffset + window.innerHeight
+    img.current.style.transform = `scale(1.5) translateY(${(viewBottom - imgPositionY) * 0.1}px)`
   }
 
   useEffect(() => {
     if(inView) {
+      texts.current.style.opacity = "1"
+      texts.current.style.transform = "translateY(0px)"
       document.addEventListener('scroll', onScroll)
       return () => document.removeEventListener('scroll', onScroll)
+    } else {
+      texts.current.style.opacity = "0"
+      texts.current.style.transform = "translateY(100px)"
     }
   }, [inView])
 
-  // 要素の位置（position）を初期化
-  useEffect(() => {
-    const clientRect = img.current.getBoundingClientRect() ;
-    setPosition(clientRect.top)
-  }, [])
-
   return (
     <Box mt="96" position="relative">
-      {/* 画像 */}
       <Box 
         ref={ref}
         position="relative"
         mr="0"
         ml="auto"
         width="85vw"
-        height="50vh"
+        height="40vh"
         overflow="hidden"
         >
         <Image
@@ -47,30 +58,31 @@ export default function Section1() {
           src="/images/yamada_03.jpg"
           alt='Dan Abramov' 
           objectFit='cover'
-          marginTop="-150px"
           position="absolute"
-          top="0"
+          top="-24"
           width="100%"
           height="100%"
-          transform="scale(1.5)"
+          transform="scale(1.5) translateY(0px)"
         />
         <Box
           position="absolute"
           top="0"
           width="100%"
           height="100%"
-          backgroundColor="black"
           background="linear-gradient(135deg, black, white)"
           opacity="0.8"
         ></Box>
       </Box>
-      {/* テキスト */}
       <Box
+        ref={texts}
         position="absolute"
         top="10"
         width="100%"
         height="100%"
         pl="5"
+        transition="all 1s"
+        opacity="0"
+        transform="translateY(100px)"
         >
         <Text color="white" fontSize="4xl" letterSpacing={5} fontWeight="bold">アルペン</Text>
         <Text mt="5" color="white" fontSize="xs" lineHeight={2} >

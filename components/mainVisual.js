@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Box, Image, Text } from '@chakra-ui/react'
-import { useInView } from 'react-intersection-observer';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/css'; 
 
 const imgUrls = [
   "yamada_23.JPG",
-  "yamada_01.jpg",
-  "yamada_07.JPG"
+  "yamada_19.JPG",
+  "yamada_07.JPG",
+  "yamada_12.JPG"
 ]
 
 export default function MainVisual() {
@@ -15,33 +15,28 @@ export default function MainVisual() {
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
-  const images = [img1, img2, img3]
+  const img4 = useRef()
+  const images = [img1, img2, img3, img4]
   const texts = useRef()
   const text1 = useRef()
   const text2 = useRef()
   const scroll = useRef()
-  const { ref, inView } = useInView({
-    rootMargin: '0px',
-  });
 
   useEffect(() => {
-    setTimeout(() => images[activeImgIndex].current.style.transform = `scale(1) translateX(0)`)
+    setTimeout(() => {
+      images[activeImgIndex].current.style.transform = "scale(1)"
+      images[activeImgIndex].current.style.left = "0"
+    })
     let nextIndex = activeImgIndex + 1 == images.length
       ? 0
       : activeImgIndex + 1
-    images[nextIndex].current.style.transform = `scale(2) translateX(-100vw)`
+    images[nextIndex].current.style.transform = "scale(2)"
+    images[nextIndex].current.style.left = "-200vw"
   }, [activeImgIndex])
 
   const onChange = (n) => {
     setActiveImgIndex(n)
   }
-
-  useEffect(() => {
-    if(inView) {
-      // document.addEventListener('scroll', onScroll)
-      // return () => document.removeEventListener('scroll', onScroll)
-    }
-  }, [inView])
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,7 +56,6 @@ export default function MainVisual() {
   return (
     <>
       <Box
-        ref={ref}
         position="relative"
         h="100vh"
         overflow="hidden"
@@ -72,12 +66,12 @@ export default function MainVisual() {
           options={{
             type: "fade",
             rewind: true,
-            speed: "2000",
+            speed: "4000",
             padding: 0,
             arrows: false,
             pagination: false,
             autoplay: true, // 自動再生を有効
-            interval: 3000, // 自動再生の間隔を3秒に設定
+            interval: 5000, // 自動再生の間隔を3秒に設定
             height: "100vh"
           }}
           >
@@ -90,10 +84,12 @@ export default function MainVisual() {
                 objectFit='cover'
                 position="absolute"
                 top="0"
+                left="-200vw"
                 width="100%"
                 height="100%"
-                transform="scale(2) translateX(-100vw)"
-                transition="all 1.5s"
+                transform="scale(2)"
+                transition="left 1s, transform 5s"
+                transitionTimingFunction="ease-out"
               />
             </SplideSlide>
           ))}

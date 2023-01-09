@@ -12,9 +12,6 @@ export default function Image({ name }) {
     if(inView) {
       img.current.style.transform = "translateY(0px)"
       img.current.style.opacity = "1"
-    } else {
-      img.current.style.transform = "translateY(100px)"
-      img.current.style.opacity = "0"
     }
   }, [inView])
 

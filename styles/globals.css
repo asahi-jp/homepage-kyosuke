@@ -4,6 +4,10 @@ html {
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
+main {
+  /* background-color: white !important; */
+}
+
 #__next {
   position: relative;
 }
@@ -111,4 +115,5 @@ animation:mousemove 1.6s ease-in-out infinite;
 
 .swiper-pagination-bullet {
   background: white !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
